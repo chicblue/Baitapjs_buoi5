@@ -51,7 +51,7 @@ if (tongDiem>=diemChuan &&monMot>0 && monHai>0 && monBa>0){
 }
 else {
     document.getElementById('tongDiem').innerHTML = tongDiem;
-    document.getElementById('ketQua').innerHTML = 'Không Trúng Tuyển';
+    document.getElementById('ketQua').innerHTML = 'Không Trúng Tuyển . Do có điểm bằng 0';
 }
 }
 // bài 2
@@ -78,7 +78,8 @@ else if(soKW>200 &&soKW<=350){
 else if(soKW > 350){
     tienTra = (soKW-350)*1300 + 100*850+ 200* 1100+ 50*500 + 50*650 ;
 }
-document.getElementById('tongTien').innerHTML = tienTra;
+
+document.getElementById('tongTien').innerHTML = new Intl.NumberFormat().format(tienTra);
 document.getElementById('tenKH').innerHTML = hoTen;
 
 }
@@ -92,29 +93,29 @@ var people = document.getElementById('people').value;
 // output
 var moneyTax = 0;
 // process
-var incomeTax = income - 4 - (people*1.6);
-if(incomeTax <=60){
+var incomeTax = income - 4e+6 - (people*1.6e+5);
+if(incomeTax <=60e+6){
     moneyTax =  incomeTax *0.05;
 }
-else if(incomeTax>60 && incomeTax <= 120){
-    moneyTax = (incomeTax - 60)*0.1 + 60*0.05 ;
+else if(incomeTax>60e+6 && incomeTax <= 120e+6){
+    moneyTax = (incomeTax - 60e+6)*0.1 + 60*0.05 ;
 }
-else if(incomeTax>120 && incomeTax <= 210){
-    moneyTax = (incomeTax - 120)*0.15 + 60*0.05 + 60*0.1 ;
+else if(incomeTax>120e+6 && incomeTax <= 210e+6){
+    moneyTax = (incomeTax - 120e+6)*0.15 + 60*0.05 + 60*0.1 ;
 } 
-else if(incomeTax>210 && incomeTax <= 384){
-    moneyTax = (incomeTax - 210)*0.2 + 60*0.05 + 60*0.1 +90*0.15; 
+else if(incomeTax>210e+6 && incomeTax <= 384e+6){
+    moneyTax = (incomeTax - 210e+6)*0.2 + 60*0.05 + 60*0.1 +90*0.15; 
 } 
-else if(incomeTax>384 && incomeTax <= 624){
-    moneyTax = (incomeTax - 384)*0.25+ 60*0.05 + 60*0.1 +90*0.15 + 174 * 0.2; 
+else if(incomeTax>384e+6 && incomeTax <= 624e+6){
+    moneyTax = (incomeTax - 384e+6)*0.25+ 60*0.05 + 60*0.1 +90*0.15 + 174 * 0.2; 
 } 
-else if(incomeTax>624 && incomeTax <= 960){
-    moneyTax = (incomeTax - 624)*0.3+ 60*0.05 + 60*0.1 +90*0.15 + 174 * 0.2 + 240* 0.25; 
+else if(incomeTax>624e+6 && incomeTax <= 960e+6){
+    moneyTax = (incomeTax - 624e+6)*0.3+ 60*0.05 + 60*0.1 +90*0.15 + 174 * 0.2 + 240* 0.25; 
 } 
-else if(incomeTax>960){
-    moneyTax = (incomeTax - 960)*0.35+ 60*0.05 + 60*0.1 +90*0.15 + 174* 0.2 + 240 * 0.25 + 336 * 0.3  ; 
+else if(incomeTax>960e+6){
+    moneyTax = (incomeTax - 960e+6)*0.35+ 60*0.05 + 60*0.1 +90*0.15 + 174* 0.2 + 240 * 0.25 + 336 * 0.3  ; 
 }  
-document.getElementById('tongThue').innerHTML = moneyTax;
+document.getElementById('tongThue').innerHTML = new Intl.NumberFormat().format(moneyTax) ;
 document.getElementById('tenKHT').innerHTML = nameCus;
 
 }
@@ -156,7 +157,7 @@ document.getElementById('btnTinhTienCap').onclick= function(){
             else{
                serBasic = 75;
             }
-        }
+        }break;
     }
     var tongTienCap = billfee + serBasic + highChanel ;
     document.getElementById('maKhachHang').innerHTML = maKH;
