@@ -55,34 +55,37 @@ else {
 }
 }
 // bài 2
+
 document.getElementById('btnTinhTien').onclick= function(){
 // input
 var hoTen = document.getElementById('hoTen').value;
 var soKW = document.getElementById('soKW').value;
 // output
-tienTra = 0;
-// process
-if(soKW<=50){
-    tienTra = 500 *soKW;
-}
-else if(soKW>50 && soKW<=100){
-    tienTra = (soKW-50)*650 + 500*50;
-}
-else if(soKW>100 && soKW <=200)
-{
-    tienTra = (soKW-100)*850 + 50*500 + 50*650;
-}
-else if(soKW>200 &&soKW<=350){
-    tienTra = (soKW-200)*1100 + 100*850 + 50*500 + 50*650;
-}
-else if(soKW > 350){
-    tienTra = (soKW-350)*1300 + 100*850+ 200* 1100+ 50*500 + 50*650 ;
-}
-
-document.getElementById('tongTien').innerHTML = new Intl.NumberFormat().format(tienTra);
 document.getElementById('tenKH').innerHTML = hoTen;
-
+document.getElementById('tongTien').innerHTML = new Intl.NumberFormat().format(tinhTienDien(soKW));
 }
+// process
+function tinhTienDien(soKW){
+    var tienTra =0;
+    var soKW ;
+    if(soKW<=50){
+        tienTra = 500 *soKW;
+    }
+    else if(soKW>50 && soKW<=100){
+        tienTra = (soKW-50)*650 + 500*50;
+    }
+    else if(soKW>100 && soKW <=200)
+    {
+        tienTra = (soKW-100)*850 + 50*500 + 50*650;
+    }
+    else if(soKW>200 &&soKW<=350){
+        tienTra = (soKW-200)*1100 + 100*850 + 50*500 + 50*650;
+    }
+    else if(soKW > 350){
+        tienTra = (soKW-350)*1300 + 100*850+ 200* 1100+ 50*500 + 50*650 ;
+    }
+    return tienTra;
+    }
 
 // Bài 3
 document.getElementById('btnTinhThue').onclick= function(){
@@ -91,37 +94,40 @@ var nameCus = document.getElementById('nameCus').value;
 var income = document.getElementById('income').value;
 var people = document.getElementById('people').value;
 // output
-var moneyTax = 0;
+document.getElementById('tenKHT').innerHTML = nameCus;
+document.getElementById('tongThue').innerHTML = new Intl.NumberFormat().format(tinhThue(income,people)) ;
+}
 // process
-var incomeTax = income - 4e+6 - (people*1.6e+5);
-if(incomeTax <=60e+6){
+function tinhThue(income,people){
+var moneyTax = 0;
+var incomeTax = income - 4 - (people*1.6);
+if(incomeTax <=60){
     moneyTax =  incomeTax *0.05;
 }
-else if(incomeTax>60e+6 && incomeTax <= 120e+6){
-    moneyTax = (incomeTax - 60e+6)*0.1 + 60*0.05 ;
+else if(incomeTax>60 && incomeTax <= 120){
+    moneyTax = (incomeTax - 60)*0.1 + 60*0.05 ;
 }
-else if(incomeTax>120e+6 && incomeTax <= 210e+6){
-    moneyTax = (incomeTax - 120e+6)*0.15 + 60*0.05 + 60*0.1 ;
+else if(incomeTax>120 && incomeTax <= 210){
+    moneyTax = (incomeTax - 120)*0.15 + 60*0.05 + 60*0.1 ;
 } 
-else if(incomeTax>210e+6 && incomeTax <= 384e+6){
-    moneyTax = (incomeTax - 210e+6)*0.2 + 60*0.05 + 60*0.1 +90*0.15; 
+else if(incomeTax>210 && incomeTax <= 384){
+    moneyTax = (incomeTax - 210)*0.2 + 60*0.05 + 60*0.1 +90*0.15; 
 } 
-else if(incomeTax>384e+6 && incomeTax <= 624e+6){
-    moneyTax = (incomeTax - 384e+6)*0.25+ 60*0.05 + 60*0.1 +90*0.15 + 174 * 0.2; 
+else if(incomeTax>384 && incomeTax <= 624){
+    moneyTax = (incomeTax - 384)*0.25+ 60*0.05 + 60*0.1 +90*0.15 + 174 * 0.2; 
 } 
-else if(incomeTax>624e+6 && incomeTax <= 960e+6){
-    moneyTax = (incomeTax - 624e+6)*0.3+ 60*0.05 + 60*0.1 +90*0.15 + 174 * 0.2 + 240* 0.25; 
+else if(incomeTax>624 && incomeTax <= 960){
+    moneyTax = (incomeTax - 624)*0.3+ 60*0.05 + 60*0.1 +90*0.15 + 174 * 0.2 + 240* 0.25; 
 } 
-else if(incomeTax>960e+6){
-    moneyTax = (incomeTax - 960e+6)*0.35+ 60*0.05 + 60*0.1 +90*0.15 + 174* 0.2 + 240 * 0.25 + 336 * 0.3  ; 
-}  
-document.getElementById('tongThue').innerHTML = new Intl.NumberFormat().format(moneyTax) ;
-document.getElementById('tenKHT').innerHTML = nameCus;
+else if(incomeTax>960){
+    moneyTax = (incomeTax - 960)*0.35+ 60*0.05 + 60*0.1 +90*0.15 + 174* 0.2 + 240 * 0.25 + 336 * 0.3  ; 
+}
+moneyTax = moneyTax *100000;  
+return moneyTax;
+}
 
-}
 // bài 4 
 function ochange(){
-    debugger;
  var change =   document.getElementById('loaiKH').value;
  if(change =='ND'){
     document.getElementById('soKetNoi').style.display = 'none'
@@ -137,8 +143,13 @@ document.getElementById('btnTinhTienCap').onclick= function(){
     var soKetNoi = document.getElementById('soKetNoi').value;
     var kenhCC = document.getElementById('kenhCC').value;
     // output
+    document.getElementById('maKhachHang').innerHTML = maKH;
+    document.getElementById('tongHoaDon').innerHTML = tinhTienCap(loaiKH,soKetNoi,kenhCC);
+}
+  // process
+    function tinhTienCap(loaiKH,soKetNoi,kenhCC){
     var tongTienCap = 0 ;
-    // process
+  
     var   billfee =    0;
     var serBasic = 0;
     var highChanel = 0 ;
@@ -159,9 +170,8 @@ document.getElementById('btnTinhTienCap').onclick= function(){
             }
         }break;
     }
-    var tongTienCap = billfee + serBasic + highChanel ;
-    document.getElementById('maKhachHang').innerHTML = maKH;
-    document.getElementById('tongHoaDon').innerHTML = tongTienCap;
+    tongTienCap = billfee + serBasic + highChanel ;
+    return tongTienCap;
 }
 
 

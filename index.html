@@ -25,37 +25,39 @@
         <div class="from-group row">
             <div class="col-2 text-center ">
             <p> Điểm Chuẩn </p>
-            <input id="diemChuan" class="form-control" value="">
+            <input id="diemChuan" class="form-control" value="" type="number">
             </div>
             <div class="col-2 text-center ">
             <p> Điểm môn thứ nhất</p>
-            <input id="monMot" class="form-control" value="">
+            <input id="monMot" class="form-control" type="number">
             </div>
             <div class="col-2 text-center">
             <p> Điểm môn thứ hai</p>
-            <input id="monHai" class="form-control" value="">
+            <input id="monHai" class="form-control" type="number">
             </div>
             <div class="col-2 text-center">
             <p> Điểm môn thứ ba</p>
-            <input id="monBa" class="form-control" value="">
+            <input id="monBa" class="form-control" type="number">
             </div>
             <div class="col-2 text-center">
             <p> Khu Vực</p>
            <select name="" id="khuVuc" class="col-12 pb-2">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="X">X</option>
+             <option value="">Chọn Khu Vực</option>
+            <option value="A">Khu vực A: Cộng 2 điểm</option>
+            <option value="B">Khu vực B: Cộng 1 điểm</option>
+            <option value="C">Khu vực C: Cộng 0.5 điểm</option>
+            <option value="X">Không thuộc khu vực ưu tiên</option>
             
            </select>
             </div>
             <div class="col-2 text-center">
             <p> Đối tượng</p>
             <select name="" id="doiTuong" class="col-12 pb-2">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option> 
+                <option value="">Chọn Đối Tượng</option>
+                <option value="1">Đối tượng 1: Cộng 2.5 điểm</option>
+                <option value="2">Đối tượng 2: Cộng 1.5 điểm</option>
+                <option value="3">Đối tượng 3: Cộng 1 điểm</option> 
+                <option value="0">Không thuộc đối tượng ưu tiên</option>
                </select>
             </div>
             <div class="col-2 mt-4">
@@ -85,7 +87,7 @@
             </div>
             <div class="col-4 text-center ">
             <p> Số KW sử dụng</p>
-            <input id="soKW" class="form-control" value="">
+            <input id="soKW" class="form-control" type="number">
             </div>
             <div class="col-4 mt-4">
                 <button id="btnTinhTien" class="btn btn-success">Kết Quả</button>
