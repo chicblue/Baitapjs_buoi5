@@ -122,7 +122,7 @@ else if(incomeTax>624 && incomeTax <= 960){
 else if(incomeTax>960){
     moneyTax = (incomeTax - 960)*0.35+ 60*0.05 + 60*0.1 +90*0.15 + 174* 0.2 + 240 * 0.25 + 336 * 0.3  ; 
 }
-moneyTax = moneyTax *100000;  
+moneyTax = moneyTax *1000000;  
 return moneyTax;
 }
 
